@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/exitApplicationDetailInfos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:text="返回"
+        android:textSize="20dp"
+        android:textColor="#000"/>
+    <TextView
+        android:id="@+id/applicationsNames"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="应用名称"
+        android:textSize="25dp"
+        android:textColor="#000"
+        />
+    <ListView
+        android:id="@+id/applicationArray"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:dividerHeight="3dp"
+        android:layout_height="0dp"
+        android:layout_weight="16"/>
+</LinearLayout>
