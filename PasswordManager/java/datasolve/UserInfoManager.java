@@ -139,12 +139,39 @@ public class UserInfoManager {
             @Override
             public void done(BmobException e) {
                 if(e==null){
+                    user.setUserAccountPassword(new String(Base64.decode(user.getUserAccountPassword())));
                     UserInfo.saveUserInfo(context,user);
                     Intent intent = new Intent(context, WelcomePage.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                 }else{
                     Toast.makeText(context, "修改失败！！！", Toast.LENGTH_LONG).show();
+                    Log.e("-------BMOB-------",e.toString());
+                }
+            }
+        });
+    }
+    /*
+    * 找回密码
+    * */
+    public void resetPassword(final Context context,final User user){
+
+        String userAccountId = user.getUserAccountId();
+        BmobQuery<User> bmobQuery = new BmobQuery<User>();
+        bmobQuery.addWhereEqualTo("userAccountId",userAccountId);
+        bmobQuery.findObjects(new FindListener<User>() {
+            @Override
+            public void done(List<User> list, BmobException e) {
+                if(e==null){
+                    if(list.size()==1){
+                        String objectId = list.get(0).getObjectId();
+                        user.setObjectId(objectId);
+                        user.setUserAccountPassword(Base64.encode(user.getUserAccountPassword().getBytes()));
+                        changePassword(context,user);
+                    }else{
+                        Toast.makeText(context, "账号不存在！", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
                     Log.e("-------BMOB-------",e.toString());
                 }
             }
@@ -217,7 +244,7 @@ public class UserInfoManager {
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                                 final HidePassword hidePassword = list.get(position);
-                                View viewTmp = View.inflate(context, R.layout.edittext_input,null);
+                                View viewTmp = View.inflate(context, R.layout.edittext_input2,null);
                                 final EditText editText = viewTmp.findViewById(R.id.secretKey);
                                 new AlertDialog.Builder(context)
                                         .setTitle("输入您的秘钥")

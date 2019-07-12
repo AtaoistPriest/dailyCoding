@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import datasolve.UserInfoManager;
 import objects.HidePassword;
 import tools.DES;
@@ -137,6 +139,7 @@ public class AddNewAccount extends Activity implements View.OnClickListener {
 
         View viewTmp = View.inflate(this, R.layout.edittext_input,null);
         final EditText editText = viewTmp.findViewById(R.id.secretKey);
+        final EditText editTextConfirm = viewTmp.findViewById(R.id.secretKeyConfirm);
         final Context context = this;
         new AlertDialog.Builder(this)
                 .setTitle("输入您的秘钥")
@@ -145,6 +148,11 @@ public class AddNewAccount extends Activity implements View.OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String secretKey = editText.getText().toString();
+                        String secretKeyConfirm = editTextConfirm.getText().toString();
+                        if(!secretKey.equals(secretKeyConfirm)){
+                            Toast.makeText(context, "秘钥不一致，请确认后重新输入！", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         //秘钥自己对自己加密一次
                         int length = secretKey.length();
                         secretKey = secretKey+"apxjevth".substring(0,(8-length%8));

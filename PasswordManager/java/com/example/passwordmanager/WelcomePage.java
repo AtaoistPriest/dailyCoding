@@ -11,7 +11,6 @@ package com.example.passwordmanager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +28,7 @@ public class WelcomePage extends Activity implements View.OnClickListener {
     private EditText userAccountId;
     private EditText userAccountPassword;
     private Button userLogin;
-    private TextView toRegisterPage;
+    private TextView toRegisterPage,toResetPasswordPage;
 
     private long mPressedTime = 0; //用户双击返回
 
@@ -50,9 +49,11 @@ public class WelcomePage extends Activity implements View.OnClickListener {
         userAccountPassword = (EditText)findViewById(R.id.userLPassword);
         userLogin = (Button)findViewById(R.id.userLogin);
         toRegisterPage = (TextView)findViewById(R.id.userLRegister);
+        toResetPasswordPage = (TextView)findViewById(R.id.resetPassword);
         //添加监听事件
         userLogin.setOnClickListener(this);
         toRegisterPage.setOnClickListener(this);
+        toResetPasswordPage.setOnClickListener(this);
         //产品ID
         Bmob.initialize(this,"338495c72de698ddd259bf683455ebe3");
         // 修改状态栏颜色
@@ -85,8 +86,21 @@ public class WelcomePage extends Activity implements View.OnClickListener {
                 break;
             case R.id.userLRegister:
                 Intent intent = new Intent(this,RegisterPage.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("updateType","register");
+                intent.putExtras(bundle);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.resetPassword:
+                Intent intent1 = new Intent(this,RegisterPage.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("updateType","reset");
+                intent1.putExtras(bundle1);
+                startActivity(intent1);
+                finish();
+                break;
+
 
         }
 

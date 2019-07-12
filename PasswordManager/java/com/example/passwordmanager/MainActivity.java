@@ -87,7 +87,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         int id = v.getId();
         switch (id){
             case R.id.changeUserAccountPassword:
-                Intent intent1 = new Intent(this,ChangePasswrd.class);
+                Intent intent1 = new Intent(this,RegisterPage.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("updateType","reset");
+                intent1.putExtras(bundle1);
                 startActivity(intent1);
                 finish();
                 break;

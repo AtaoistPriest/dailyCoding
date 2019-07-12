@@ -34,7 +34,7 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="6"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:textSize="24sp"
@@ -43,13 +43,13 @@
             <EditText
                 android:id="@+id/userRAccount"
                 android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_weight="11"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:hint="请输入用户账号"
+                android:hint="请输入您的手机号"
                 android:maxLines="1"
                 android:textColor="#000"
-                android:maxLength="50"
+                android:maxLength="150"
                 android:textSize="24sp"/>
         </LinearLayout>
 
@@ -59,7 +59,7 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="6"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:textSize="24sp"
@@ -68,16 +68,81 @@
             <EditText
                 android:id="@+id/userRPassword"
                 android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_weight="11"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:inputType="textPassword"
-                android:maxLength="50"
+                android:maxLength="150"
                 android:hint="请输入用户密码"
                 android:maxLines="1"
                 android:textColor="#000"
                 android:textSize="24sp"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:text="用户密码："/>
+            <EditText
+                android:id="@+id/userRPasswordConfirm"
+                android:layout_width="0dp"
+                android:layout_weight="11"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:inputType="textPassword"
+                android:maxLength="150"
+                android:hint="请再次输入您的密码"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textSize="24sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:text="验  证  码："/>
+            <EditText
+                android:id="@+id/registerConfirm"
+                android:layout_width="0dp"
+                android:layout_weight="11"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:maxLength="150"
+                android:hint="输入验证码"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textSize="24sp"/>
+            <TextView
+                android:id="@+id/receiverMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center"
+                android:background="#B9B7B7"
+                android:textColor="#000"
+                android:layout_weight="7"
+                android:text="获取验证码"/>
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
